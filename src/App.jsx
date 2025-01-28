@@ -1,9 +1,11 @@
 import React from 'react'
-import Navbar from './components/navbar';
+import Titulo from './components/Titulo'
+import Navbar from './components/Navbar';
 
-export default function App() {
+export default function App() {  //
   return (
-    <div>
+    <div className="max-w-[90%] mx-auto p-1 bg-white shadow-lg">
+      <Titulo />
       <Navbar />
       <main className="p-4">
         <h1 className="text-3xl font-bold">Bienvenido a mi sitio</h1>
