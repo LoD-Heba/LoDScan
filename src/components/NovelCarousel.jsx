@@ -35,15 +35,13 @@ const novels = [
   {
     id: 5,
     title: "The Legendary Moonlight Sculptor",
-    description:
-      "100 capitulos.",
+    description: "100 capitulos.",
     image: "src/assets/img/img5.png",
   },
   {
     id: 6,
     title: "Rebirth of the Urban Immortal Cultivator",
-    description:
-      "capitulos.",
+    description: "capitulos.",
     image: "src/assets/img/img8.jpg",
   },
   {
@@ -81,9 +79,7 @@ const NovelCard = ({ novel }) => {
         <h3 className="text-xl font-bold">{novel.title}</h3>
         <p className="text-sm text-gray-300 mt-2">{novel.description}</p>
         <div className="mt-auto">
-          <button
-            className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg w-full"
-          >
+          <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg w-full">
             Leer más
           </button>
         </div>
@@ -118,14 +114,21 @@ const NovelCarousel = () => {
   };
 
   return (
-    <div className="mx-auto px-4 py-10">
-      <h2 className="text-2xl font-bold text-black mb-6">Novelas Populares</h2>
-      <Slider {...settings}>
-        {novels.map((novel) => (
-          <NovelCard key={novel.id} novel={novel} />
-        ))}
-      </Slider>
-    </div>
+    <>
+      <div className="flex justify-between items-center text-3xl font-bold">
+        <h2 className=" text-black mb-6">Novelas Populares</h2>
+        <a href="#" className="text-blue-500 cursor-pointer hover:underline">
+          Ver más
+        </a>
+      </div>
+      <div className="mx-auto px-4 py-10">
+        <Slider {...settings}>
+          {novels.map((novel) => (
+            <NovelCard key={novel.id} novel={novel} />
+          ))}
+        </Slider>
+      </div>
+    </>
   );
 };
 

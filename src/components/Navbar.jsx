@@ -9,7 +9,7 @@ function Navbar() {
         <div className="flex justify-around items-center py-4">
           <div className="hidden md:flex space-x-4">
             <a href="/" className="text-white hover:text-gray-200">
-              Inicio
+              Novelas
             </a>
             <a href="/about" className="text-white hover:text-gray-200">
               Nosotros
