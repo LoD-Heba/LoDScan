@@ -2,67 +2,18 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-const novels = [
-  {
-    id: 1,
-    title: "Against the Gods",
-    description:
-      "Un joven con un misterioso poder lucha contra el destino en un mundo de cultivadores.",
-    image: "src/assets/img/img1.jpg",
-  },
-  {
-    id: 2,
-    title: "Solo Leveling",
-    description:
-      "El cazador más débil del mundo obtiene un sistema que lo convierte en el más fuerte.",
-    image: "src/assets/img/img2.jpg",
-  },
-  {
-    id: 3,
-    title: "The Beginning After the End",
-    description:
-      "Un rey reencarna en un mundo mágico y comienza una nueva aventura.",
-    image: "src/assets/img/img3.jpg",
-  },
-  {
-    id: 4,
-    title: "Tales of Demons and Gods",
-    description:
-      "Un joven reencarna con sus recuerdos intactos y busca cambiar su destino.",
-    image: "src/assets/img/img4.jpg",
-  },
-  {
-    id: 5,
-    title: "The Legendary Moonlight Sculptor",
-    description: "100 capitulos.",
-    image: "src/assets/img/img5.png",
-  },
-  {
-    id: 6,
-    title: "Rebirth of the Urban Immortal Cultivator",
-    description: "capitulos.",
-    image: "src/assets/img/img8.jpg",
-  },
-  {
-    id: 7,
-    title: "Martial Peak",
-    description:
-      "Un joven con un talento oculto comienza su viaje para alcanzar la cima de la cultivación.",
-    image: "src/assets/img/img7.jpg",
-  },
-];
+import { recentsNovel } from "../data/db";
 
 const NovelCard = ({ novel }) => {
   return (
     <div
       className="
-        bg-gray-800 
+        bg-blue-950 
         text-white 
         rounded-lg 
         overflow-hidden 
-        shadow-lg 
-        hover:shadow-2xl 
+        shadow-2xl 
+        hover:shadow-black
         transition 
         duration-300 
         mx-4 min-h-[450px] 
@@ -79,7 +30,7 @@ const NovelCard = ({ novel }) => {
         <h3 className="text-xl font-bold">{novel.title}</h3>
         <p className="text-sm text-gray-300 mt-2">{novel.description}</p>
         <div className="mt-auto">
-          <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg w-full">
+          <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg w-full cursor-pointer">
             Leer más
           </button>
         </div>
@@ -123,8 +74,10 @@ const NovelCarousel = () => {
       </div>
       <div className="mx-auto px-4 py-10">
         <Slider {...settings}>
-          {novels.map((novel) => (
-            <NovelCard key={novel.id} novel={novel} />
+          {recentsNovel.slice(0,10).map((novel) => (
+            <NovelCard key={novel.id} novel={novel} 
+            
+            />
           ))}
         </Slider>
       </div>

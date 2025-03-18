@@ -1,9 +1,7 @@
-import React, { useState } from "react";
 
-function Footer() {
-    const [isOpen, setIsOpen] = useState(false);
+export default function Footer() {
     return (
-      <footer className="bg-blue-950 text-gray-300 py-6">
+      <footer className="bg-transparent text-gray-300 py-6">
         <div className="flex justify-center">
           {/* Sección 3: Redes sociales */}
           <div>
@@ -18,11 +16,10 @@ function Footer() {
   
         {/* Derechos de autor */}
         <div className="text-center text-sm border-t border-gray-700 mt-6 pt-4">
-          &copy; {new Date().getFullYear()} ScanNovels. Todos los derechos reservados.
+          &copy; 2025 Rincon del Lector - Todos los derechos reservados.
         </div>
       </footer>
     );
   };
   
-  export default Footer;
   
