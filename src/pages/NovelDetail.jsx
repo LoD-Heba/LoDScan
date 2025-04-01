@@ -43,7 +43,7 @@ const NovelDetail = () => {
             {/* Portada */}
             <div className="w-full md:w-1/3 lg:w-1/4">
               <img
-                src={novel.image}  // Cambiado de novel.cover a novel.image
+                src={novel.image}
                 alt={novel.title}
                 className="rounded-lg shadow-xl w-full h-auto"
               />
