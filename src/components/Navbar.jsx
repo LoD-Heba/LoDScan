@@ -1,42 +1,80 @@
 import React, { useState } from "react";
-import { Search } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [search, setSearch] = useState("");
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log("Buscando:", search);
-  };
+  const isAuthenticated = false; // Cambia esto según el estado de autenticación
 
   return (
     <nav className="bg-gradient-to-r from-blue-800 to-blue-950 opacity-95">
-    <div className="container mx-auto px-4">
-      <div className="flex justify-between items-center py-4">
-        <div className="hidden md:flex space-x-4">
-          <a href="/" className="text-white hover:text-gray-200">Catálogo</a>
-          <a href="/about" className="text-white hover:text-gray-200">Todos los artículos</a>
-          <a href="/services" className="text-white hover:text-gray-200">Servicios</a>
-          <a href="/contact" className="text-white hover:text-gray-200">Contacto</a>
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center py-3 md:py-4">
+          {/* Menú hamburguesa para móvil */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white focus:outline-none"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+
+          {/* Menú normal para desktop */}
+          <div className="hidden md:flex space-x-4">
+            <Link to="/" className="text-white hover:text-gray-200 transition-all duration-300 pb-1 hover:border-b-2 md:hover:border-b-4 hover:border-gray-300">Inicio</Link>
+            <Link to="/discover" className="text-white hover:text-gray-200 transition-all duration-300 pb-1 hover:border-b-2 md:hover:border-b-4 hover:border-gray-300">Catálogo</Link>
+          </div>
+
+          {/* Botón de Inicio de Sesión o Perfil */}
+          <div>
+            {isAuthenticated ? (
+              <Link to="/perfil" className="text-white px-4 py-2 bg-green-600 rounded-md hover:bg-green-700 transition">
+                Mi Perfil
+              </Link>
+            ) : (
+              <Link to="/login" className="text-white px-4 py-2 bg-blue-600 rounded-md hover:bg-blue-700 transition">
+                Iniciar sesión
+              </Link>
+            )}
+          </div>
         </div>
-        <form onSubmit={handleSearch} className="relative w-64">
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full px-4 py-2 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Buscar..."
-          />
-          <button
-            type="submit"
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-gray-900"
-          >
-            <Search size={20} />
-          </button>
-        </form>
+
+        {/* Menú desplegable para móvil */}
+        {isOpen && (
+          <div className="md:hidden pb-3">
+            <div className="flex flex-col space-y-2">
+              <Link 
+                to="/" 
+                className="text-white hover:text-gray-200 px-2 py-1"
+                onClick={() => setIsOpen(false)}
+              >
+                Inicio
+              </Link>
+              <Link 
+                to="/discover" 
+                className="text-white hover:text-gray-200 px-2 py-1"
+                onClick={() => setIsOpen(false)}
+              >
+                Catálogo
+              </Link>
+              {/* Botón de sesión en móvil */}
+              <Link 
+                to={isAuthenticated ? "/perfil" : "/login"} 
+                className="text-white hover:text-gray-200 px-2 py-1"
+                onClick={() => setIsOpen(false)}
+              >
+                {isAuthenticated ? "Mi Perfil" : "Iniciar sesión"}
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
-    </div>
-  </nav>
+    </nav>
   );
 }
