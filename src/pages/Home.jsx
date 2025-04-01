@@ -10,7 +10,7 @@ import Recomends from "../components/Recomends";
 export default function Home() {
   return (
     <div className="bg-[url('/img/epic.jpg')] bg-cover bg-fixed">
-      <div className="max-w-full md:max-w-[90%] mx-auto bg-white shadow-lg bg-opacity-90">
+      <div className="md:max-w-full max-w-[90%] mx-auto bg-white shadow-lg bg-opacity-90">
         <Titulo />
         <Navbar />
 
