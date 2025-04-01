@@ -4,7 +4,7 @@ import { recentsNovel } from "../data/db";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CommentsSection from "../components/NovelComment";
-import { saveAs } from "file-saver"; // Necesitarás instalar file-saver
+import { saveAs } from "file-saver"; 
 
 const ChapterReader = () => {
   const { novelId, chapterId } = useParams();
@@ -18,7 +18,6 @@ const ChapterReader = () => {
   const [showBookmarkModal, setShowBookmarkModal] = useState(false);
   const [newBookmarkName, setNewBookmarkName] = useState("");
   const [currentBookmark, setCurrentBookmark] = useState(null);
-  
 
   // Obtener datos de la novela y capítulo
   const novel = recentsNovel.find((novel) => novel.id === parseInt(novelId));
@@ -455,7 +454,7 @@ const ChapterReader = () => {
           </div>
         </div>
       </main>
-      <CommentsSection/>
+      <CommentsSection />
       <Footer />
     </div>
   );
