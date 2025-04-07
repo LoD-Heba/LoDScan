@@ -2,13 +2,14 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-blue-900 to-blue-950 text-gray-300 py-6 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
+        {/* //////////////////////////////////////////////////////////////////////////////////////// */}
         {/* Contenido principal del footer */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           
-          {/* Logo y descripción (opcional) */}
+          {/* Logo y descripción */}
           <div className="mb-4 md:mb-0 text-center md:text-left">
-            <h2 className="text-xl font-bold text-white">El Rincón del Lector</h2>
-            <p className="text-sm mt-1 max-w-xs">Descubre tu próxima aventura literaria</p>
+            <h2 className="text-xl font-bold text-white">Puedes compartir nuestro contenido que es gratuito</h2>
+            <p className="text-sm mt-1 max-w-xs">¿Tienes una sugerencia? Puedes compartirlo en la caja de sugerencias</p>
           </div>
           
           {/* Redes sociales */}
@@ -42,7 +43,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        
+        {/* //////////////////////////////////////////////////////////////////////////////////////// */}
         {/* Separador y derechos de autor */}
         <div className="mt-6 pt-4 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
@@ -58,6 +59,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        {/* //////////////////////////////////////////////////////////////////////////////////////// */}
       </div>
     </footer>
   );

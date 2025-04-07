@@ -38,26 +38,6 @@ const AuthPage = () => {
   };
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-
-    setIsLoading(true);
-    setMessage("");
-
-    // Simular llamada a la API
-    setTimeout(() => {
-      setIsLoading(false);
-      if (forgotPassword) {
-        setMessage(`Se ha enviado un enlace de recuperación a ${email}`);
-        setForgotPassword(false);
-      } else {
-        setMessage(isLogin ? "Inicio de sesión exitoso" : "Registro exitoso");
-        // Aquí redirigirías al usuario o manejarías la autenticación
-      }
-    }, 1500);
-  };
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const handleSocialLogin = (provider) => {
     setIsLoading(true);
     // Aquí integrarías con Firebase Auth o similar
@@ -116,7 +96,7 @@ const AuthPage = () => {
               </div>
             )}
 
-            <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+            <form className="mt-8 space-y-6">
               {!forgotPassword && !isLogin && (
                 <div>
                   <label

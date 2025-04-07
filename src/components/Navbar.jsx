@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const isAuthenticated = false; // Cambiar esto según el estado de autenticación
+
   //Ocultar ciertos div en otras paginas
   const hiddenPages = ["/perfil", "/login", "/registro"];
   const shouldHide = hiddenPages.includes(location.pathname);
@@ -60,7 +61,7 @@ export default function Navbar() {
           </div>
 
           {/* Botón de Inicio de Sesión o Perfil */}
-
+          {/* //////////////////////////////////////////////////////////////////////////////////////// */}
           {!shouldHide && (
             <div>
               {isAuthenticated ? (
@@ -80,6 +81,7 @@ export default function Navbar() {
               )}
             </div>
           )}
+          {/* //////////////////////////////////////////////////////////////////////////////////////// */}
         </div>
 
         {/* Menú desplegable para móvil */}
@@ -101,6 +103,7 @@ export default function Navbar() {
                 Catálogo
               </Link>
               {/* Botón de sesión en móvil */}
+              {/* //////////////////////////////////////////////////////////////////////////////////////// */}
               <Link
                 to={isAuthenticated ? "/perfil" : "/login"}
                 className="text-white hover:text-gray-200 px-2 py-1"
@@ -108,6 +111,7 @@ export default function Navbar() {
               >
                 {isAuthenticated ? "Mi Perfil" : "Iniciar sesión"}
               </Link>
+              {/* //////////////////////////////////////////////////////////////////////////////////////// */}
             </div>
           </div>
         )}
